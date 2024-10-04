@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.9.10 on win32)" generated="2024-10-03T20:12:41.681261" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="C:\Users\arodr\PycharmProjects\AdventureWorksProject\test.robot">
+<kw name="Connect To Database" owner="DatabaseLibrary" type="SETUP">
+<msg time="2024-10-03T20:12:41.791463" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2024-10-03T20:12:41.791463" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2024-10-03T20:12:41.957394" level="INFO">Connect to DB using : pymssql.connect(database='AdventureWorks2012', user='Adventure_User', password=***, host='SQLHOST', port=1433, charset='UTF-8')</msg>
+<msg time="2024-10-03T20:12:52.122816" level="FAIL">OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (SQLHOST)\n')</msg>
+<arg>pymssql</arg>
+<arg>${DBName}</arg>
+<arg>${DBUser}</arg>
+<arg>${DBPass}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="FAIL" start="2024-10-03T20:12:41.791463" elapsed="10.347878">OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (SQLHOST)\n')</status>
+</kw>
+<test id="s1-t1" name="Verify the count of records in Address table where city is Salt Lake City" line="14">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Query table [Person].[Address] and filter by city Salt Lake City
+|
+| *Expected result:*
+| 0. Four records were returned after running the query</doc>
+<status status="FAIL" start="2024-10-03T20:12:52.139341" elapsed="0.000000">Parent suite setup failed:
+OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (SQLHOST)\n')</status>
+</test>
+<test id="s1-t2" name="Verify that the address '1226 Shoe St.' exists in Address table" line="26">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Query table [Person].[Address] and filter by address 1226 Shoe St.
+|
+| *Expected result:*
+| 0. At least one record is returned by the query</doc>
+<status status="FAIL" start="2024-10-03T20:12:52.139341" elapsed="0.015020">Parent suite setup failed:
+OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (SQLHOST)\n')</status>
+</test>
+<test id="s1-t3" name="Verify that there are not Document levels different to 0,1 or 2 in Document table" line="38">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Query table [Production].[Document] and filter by DocumentLevel not in 0, 1 or 2
+|
+| *Expected result:*
+| 0. Row count is 0</doc>
+<status status="FAIL" start="2024-10-03T20:12:52.154361" elapsed="0.000000">Parent suite setup failed:
+OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (SQLHOST)\n')</status>
+</test>
+<test id="s1-t4" name="Verify that there is a document called Lubrication Maintenance in table Document" line="50">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Query table [Production].[Document] and filter by Title 'Lubrication Maintenance'
+|
+| *Expected result:*
+| 0. One row is returned</doc>
+<status status="FAIL" start="2024-10-03T20:12:52.154361" elapsed="0.000000">Parent suite setup failed:
+OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (SQLHOST)\n')</status>
+</test>
+<test id="s1-t5" name="Verify that the table 'UnitMeasure' exists" line="61">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Check if inside the database there is a table called 'UnitMeasure'
+|
+| *Expected result:*
+| 0. UnitMeasure table exists</doc>
+<status status="FAIL" start="2024-10-03T20:12:52.154361" elapsed="0.000000">Parent suite setup failed:
+OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (SQLHOST)\n')</status>
+</test>
+<test id="s1-t6" name="Verify that 'Fahrenheit' does not exist in UnitMeasure table" line="72">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Query table [Production].[UnitMeasure] and filter by Name 'Fahrenheit'
+|
+| *Expected result:*
+| 0. No records are returned</doc>
+<status status="FAIL" start="2024-10-03T20:12:52.170027" elapsed="0.000000">Parent suite setup failed:
+OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (SQLHOST)\n')</status>
+</test>
+<kw name="Disconnect From Database" owner="DatabaseLibrary" type="TEARDOWN">
+<msg time="2024-10-03T20:12:52.170027" level="INFO">No open database connection to close</msg>
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2024-10-03T20:12:52.170027" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-10-03T20:12:41.681261" elapsed="10.488766">Suite setup failed:
+OperationalError: (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (SQLHOST)\n')</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="6" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="6" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
