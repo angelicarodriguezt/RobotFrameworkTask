@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.9.10 on win32)" generated="2024-10-03T21:30:51.387371" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\arodr\OneDrive\Documentos\DQE\RobotFrameworkTask\AdventureWorksProject\robot\tests\tests.robot">
+<kw name="Connect To Database" owner="DatabaseLibrary" type="SETUP">
+<msg time="2024-10-03T21:30:51.546713" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2024-10-03T21:30:51.546713" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2024-10-03T21:30:51.552254" level="INFO">No ODBC driver specified</msg>
+<msg time="2024-10-03T21:30:51.552254" level="INFO">List of installed ODBC drivers: ['SQL Server', 'ODBC Driver 17 for SQL Server', 'Microsoft Access Driver (*.mdb, *.accdb)', 'Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)', 'Microsoft Access Text Driver (*.txt, *.csv)', 'Microsoft Access dBASE Driver (*.dbf, *.ndx, *.mdx)', 'ODBC Driver 18 for SQL Server']</msg>
+<msg time="2024-10-03T21:30:51.552254" level="INFO">Connect to DB using : pyodbc.connect("DATABASE=AdventureWorks2012;UID=Adventure_Login;PWD=***;charset=utf8mb4;SERVER=LAPTOP-EFO3HTGH,1433;")</msg>
+<msg time="2024-10-03T21:30:51.567928" level="FAIL">InterfaceError: ('IM002', '[IM002] [Microsoft][Administrador de controladores ODBC] No se encuentra el nombre del origen de datos y no se especificó ningún controlador predeterminado (0) (SQLDriverConnect)')</msg>
+<arg>pyodbc</arg>
+<arg>${DBName}</arg>
+<arg>${DBUser}</arg>
+<arg>${DBPass}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="FAIL" start="2024-10-03T21:30:51.546713" elapsed="0.021215">InterfaceError: ('IM002', '[IM002] [Microsoft][Administrador de controladores ODBC] No se encuentra el nombre del origen de datos y no se especificó ningún controlador predeterminado (0) (SQLDriverConnect)')</status>
+</kw>
+<test id="s1-t1" name="Verify the count of records in Address table where city is Salt Lake City" line="9">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Query table [Person].[Address] and filter by city Salt Lake City
+|
+| *Expected result:*
+| 0. Four records were returned after running the query</doc>
+<status status="FAIL" start="2024-10-03T21:30:51.567928" elapsed="0.000000">Parent suite setup failed:
+InterfaceError: ('IM002', '[IM002] [Microsoft][Administrador de controladores ODBC] No se encuentra el nombre del origen de datos y no se especificó ningún controlador predeterminado (0) (SQLDriverConnect)')</status>
+</test>
+<test id="s1-t2" name="Verify that the address '1226 Shoe St.' exists in Address table" line="22">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Query table [Person].[Address] and filter by address 1226 Shoe St.
+|
+| *Expected result:*
+| 0. At least one record is returned by the query</doc>
+<status status="FAIL" start="2024-10-03T21:30:51.567928" elapsed="0.015956">Parent suite setup failed:
+InterfaceError: ('IM002', '[IM002] [Microsoft][Administrador de controladores ODBC] No se encuentra el nombre del origen de datos y no se especificó ningún controlador predeterminado (0) (SQLDriverConnect)')</status>
+</test>
+<test id="s1-t3" name="Verify that there are not Document levels different to 0,1 or 2 in Document table" line="34">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Query table [Production].[Document] and filter by DocumentLevel not in 0, 1 or 2
+|
+| *Expected result:*
+| 0. Row count is 0</doc>
+<status status="FAIL" start="2024-10-03T21:30:51.583884" elapsed="0.000000">Parent suite setup failed:
+InterfaceError: ('IM002', '[IM002] [Microsoft][Administrador de controladores ODBC] No se encuentra el nombre del origen de datos y no se especificó ningún controlador predeterminado (0) (SQLDriverConnect)')</status>
+</test>
+<test id="s1-t4" name="Verify that there is a document called Lubrication Maintenance in table Document" line="46">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Query table [Production].[Document] and filter by Title 'Lubrication Maintenance'
+|
+| *Expected result:*
+| 0. One row is returned</doc>
+<status status="FAIL" start="2024-10-03T21:30:51.583884" elapsed="0.000000">Parent suite setup failed:
+InterfaceError: ('IM002', '[IM002] [Microsoft][Administrador de controladores ODBC] No se encuentra el nombre del origen de datos y no se especificó ningún controlador predeterminado (0) (SQLDriverConnect)')</status>
+</test>
+<test id="s1-t5" name="Verify that the table 'UnitMeasure' exists" line="57">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Check if inside the database there is a table called 'UnitMeasure'
+|
+| *Expected result:*
+| 0. UnitMeasure table exists</doc>
+<status status="FAIL" start="2024-10-03T21:30:51.583884" elapsed="0.010030">Parent suite setup failed:
+InterfaceError: ('IM002', '[IM002] [Microsoft][Administrador de controladores ODBC] No se encuentra el nombre del origen de datos y no se especificó ningún controlador predeterminado (0) (SQLDriverConnect)')</status>
+</test>
+<test id="s1-t6" name="Verify that 'Fahrenheit' does not exist in UnitMeasure table" line="68">
+<doc>| *Setup:*
+| 0. Connect to DB AdventureWorks2012
+|
+| *Test Steps:*
+| 1. Query table [Production].[UnitMeasure] and filter by Name 'Fahrenheit'
+|
+| *Expected result:*
+| 0. No records are returned</doc>
+<status status="FAIL" start="2024-10-03T21:30:51.593914" elapsed="0.000000">Parent suite setup failed:
+InterfaceError: ('IM002', '[IM002] [Microsoft][Administrador de controladores ODBC] No se encuentra el nombre del origen de datos y no se especificó ningún controlador predeterminado (0) (SQLDriverConnect)')</status>
+</test>
+<kw name="Disconnect From Database" owner="DatabaseLibrary" type="TEARDOWN">
+<msg time="2024-10-03T21:30:51.599442" level="INFO">No open database connection to close</msg>
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2024-10-03T21:30:51.599442" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-10-03T21:30:51.387371" elapsed="0.212071">Suite setup failed:
+InterfaceError: ('IM002', '[IM002] [Microsoft][Administrador de controladores ODBC] No se encuentra el nombre del origen de datos y no se especificó ningún controlador predeterminado (0) (SQLDriverConnect)')</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="6" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="6" skip="0" id="s1" name="Tests">Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
