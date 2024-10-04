@@ -4,8 +4,8 @@ To run this project please follow these instructions:
 1. Clone the repository
 2. Install the ODBC driver for SQL Server
 3. Install the following:
-   pip install robotframework
-   pip install robotframework-databaselibrary
+   pip install robotframework,
+   pip install robotframework-databaselibrary,
    pip install pyodbc
 4. Execute 'pip list' to confirm you have the previous packages installed
 5. Restore AdventureWorks2012 in SQL Server Management Studio
