@@ -2,7 +2,7 @@
 Library           DatabaseLibrary
 Resource   ../resources/variables.robot
 Resource   ../resources/keywords.robot
-Suite Setup       Connect To Database     pyodbc  ${DBName}   ${DBUser}   ${DBPass}   ${DBHost}   ${DBPort}
+Suite Setup     Connect To Database   pymssql  ${DBName}    ${DBUser}    ${DBPass}    ${DBHost}    ${DBPort}
 Suite Teardown    Disconnect From Database
 
 *** Test Cases ***
